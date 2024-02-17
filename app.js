@@ -110,6 +110,7 @@ app.post('/webhook', (req, res) => {
 // Handles messages events
 const handleMessage = (senderPsid, receivedMessage) => {
   let response;
+  console.log("receivedMessage => ", receivedMessage);
 
   // Checks if the message contains text
   if (receivedMessage.text) {
