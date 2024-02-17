@@ -42,11 +42,9 @@ app.get('/', (_req, res) => {
 
 // Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
-  console.log("get => webhook", req);
   
   // Your verify token. Should be a random string.
   const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
-  console.log(`VERIFY_TOKEN => ${VERIFY_TOKEN}`);
 
   // Parse the query params
   let mode = req.query['hub.mode'];
@@ -60,7 +58,7 @@ app.get('/webhook', (req, res) => {
     if (mode == 'subscribe' && token == VERIFY_TOKEN) {
 
       // Responds with the challenge token from the request
-      console.log('WEBHOOK_VERIFIED');
+      //console.log('WEBHOOK_VERIFIED');
       res.status(200).send(challenge);
 
     } else {
@@ -73,7 +71,6 @@ app.get('/webhook', (req, res) => {
 // Creates the endpoint for your webhook
 app.post('/webhook', (req, res) => {
   let body = req.body;
-  console.log("post => webhook", body.object, req.body);
   
   // Checks if this is an event from a page subscription
   if (body.object == 'page') {
@@ -83,11 +80,10 @@ app.post('/webhook', (req, res) => {
 
       // Gets the body of the webhook event
       let webhookEvent = entry.messaging[0];
-      console.log(webhookEvent);
 
       // Get the sender PSID
       let senderPsid = webhookEvent.sender.id;
-      console.log('Sender PSID: ' + senderPsid);
+      //console.log('Sender PSID: ' + senderPsid);
 
       // Check if the event is a message or postback and
       // pass the event to the appropriate handler function
@@ -110,14 +106,13 @@ app.post('/webhook', (req, res) => {
 // Handles messages events
 const handleMessage = (senderPsid, receivedMessage) => {
   let response;
-  console.log("receivedMessage => ", receivedMessage);
 
   // Checks if the message contains text
   if (receivedMessage.text) {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
     response = {
-      'text': `Hello {{user_first_name}}! \n You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
+      'text': `Hello {{user_first_name}}! \nYou sent the message: '${receivedMessage.text}'. Now send me an attachment!`
     };
   } else if (receivedMessage.attachments) {
 
@@ -160,6 +155,7 @@ const handlePostback = (senderPsid, receivedPostback) => {
 
   // Get the payload for the postback
   let payload = receivedPostback.payload;
+  console.log("Payload =>", payload);
 
   // Set the response based on the postback payload
   if (payload == 'yes') {
@@ -193,7 +189,7 @@ const callSendAPI = (senderPsid, response) => {
     'json': requestBody
   }, (err, _res, _body) => {
     if (!err) {
-      console.log('Message sent!');
+      console.log(`Message sent at => ${new Date()}`);
     } else {
       console.error('Unable to send message:' + err);
     }
