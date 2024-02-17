@@ -155,8 +155,8 @@ const handlePostback = (senderPsid, receivedPostback) => {
 
   // Get the payload for the postback
   let payload = receivedPostback.payload;
-  console.log("Payload =>");
-  console.log(payload);
+  console.log("receivedPostback =>");
+  console.log(receivedPostback);
 
   // Set the response based on the postback payload
   if (payload == 'yes') {
