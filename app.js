@@ -42,7 +42,8 @@ app.get('/', (_req, res) => {
 
 // Adds support for GET requests to our webhook
 app.get('/webhook', (req, res) => {
-
+  console.log("get => webhook", req);
+  
   // Your verify token. Should be a random string.
   const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
   console.log(`VERIFY_TOKEN => ${VERIFY_TOKEN}`);
