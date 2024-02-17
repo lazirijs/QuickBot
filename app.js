@@ -36,7 +36,7 @@ app.use(urlencoded({ extended: true }));
 app.use(json());
 
 // Respond with 'Hello World' when a GET request is made to the homepage
-app.get('/', (_req, res) => {
+app.get('/', (req, res) => {
   res.send('Hello World');
 });
 
@@ -112,7 +112,30 @@ const handleMessage = (senderPsid, receivedMessage) => {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
     response = {
-      'text': `Hello {{user_first_name}}! \nYou sent the message: '${receivedMessage.text}'. Now send me an attachment!`
+      "text": "What can I do to help you today?",
+      "quick_replies": [
+          {
+              "content_type": "text",
+              "title": "Categories",
+              "payload": "CATEGORIES",
+          },
+          {
+              "content_type": "text",
+              "title": "Lookup Order",
+              "payload": "LOOKUP_ORDER",
+          },
+          {
+              "content_type": "text",
+              "title": "Talk to an agent",
+              "payload": "TALK_AGENT",
+          },
+          {
+              "content_type": "text",
+              "title": "Lookup Survey",
+              "payload": "LOOKUP_SURVEY",
+          },
+      ]
+      //'text': `Hello 👋! \nYou sent the message: '${receivedMessage.text}'. Now send me an attachment!`
     };
   } else if (receivedMessage.attachments) {
 
