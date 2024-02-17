@@ -155,7 +155,8 @@ const handlePostback = (senderPsid, receivedPostback) => {
 
   // Get the payload for the postback
   let payload = receivedPostback.payload;
-  console.log("Payload =>", payload);
+  console.log("Payload =>");
+  console.log(payload);
 
   // Set the response based on the postback payload
   if (payload == 'yes') {
@@ -189,7 +190,7 @@ const callSendAPI = (senderPsid, response) => {
     'json': requestBody
   }, (err, _res, _body) => {
     if (!err) {
-      console.log(`Message sent at => ${new Date()}`);
+      console.log(`--- new Message sent ---`);
     } else {
       console.error('Unable to send message:' + err);
     }
