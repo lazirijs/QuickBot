@@ -47,7 +47,7 @@ app.get('/webhook', (req, res) => {
   // Your verify token. Should be a random string.
   const VERIFY_TOKEN = process.env.VERIFY_TOKEN;
   console.log(`VERIFY_TOKEN => ${VERIFY_TOKEN}`);
-  
+
   // Parse the query params
   let mode = req.query['hub.mode'];
   let token = req.query['hub.verify_token'];
@@ -74,7 +74,7 @@ app.get('/webhook', (req, res) => {
 app.post('/webhook', (req, res) => {
   let body = req.body;
   console.log("post => webhook", body.object, req.body);
-
+  
   // Checks if this is an event from a page subscription
   if (body.object == 'page') {
 
@@ -116,7 +116,7 @@ const handleMessage = (senderPsid, receivedMessage) => {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
     response = {
-      'text': `You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
+      'text': `Hello {{user_first_name}}! \n You sent the message: '${receivedMessage.text}'. Now send me an attachment!`
     };
   } else if (receivedMessage.attachments) {
 
