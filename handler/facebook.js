@@ -9,7 +9,7 @@ const message = (senderPsid, receivedMessage) => {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
     response = {
-      'text': {
+      'attachment': {
         'type': 'template',
         'payload': {
           'template_type': 'generic',
