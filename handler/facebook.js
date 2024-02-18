@@ -9,24 +9,28 @@ const message = (senderPsid, receivedMessage) => {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
     response = {
-      text: "Hello Msg 👋 \nWhat can I do to help you today?",
-      quick_replies: [
-        {
-          content_type: "text",
-          title: "Categories",
-          payload: "CATEGORIES",
-        },
-        {
-          content_type: "text",
-          title: "Lookup Order",
-          payload: "LOOKUP_ORDER",
-        },
-        {
-          content_type: "text",
-          title: "Talk to an agent",
-          payload: "TALK_AGENT",
+      'text': {
+        'type': 'template',
+        'payload': {
+          'template_type': 'generic',
+          'elements': [{
+            'title': 'Hello Msg 👋',
+            'subtitle': 'Do you need help ?',
+            'buttons': [
+              {
+                'type': 'postback',
+                'title': 'Yes!',
+                'payload': 'yes',
+              },
+              {
+                'type': 'postback',
+                'title': 'No!',
+                'payload': 'no',
+              }
+            ],
+          }]
         }
-      ]
+      }
     };
   }
 
