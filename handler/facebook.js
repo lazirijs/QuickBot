@@ -12,16 +12,26 @@ const message = (senderPsid, receivedMessage) => {
       'attachment': {
         'type': 'template',
         'payload': {
-          'template_type': 'button',
-          'text': 'Link your account',
-          'buttons': [
-            {
-              'type': 'account_link',
-              'url': 'https://quickbot-1c1m.onrender.com/account/link',
-            },
-          ],
-        },
-      },
+          'template_type': 'generic',
+          'elements': [{
+            'title': 'Hello Msg 👋',
+            'subtitle': 'first login to your account',
+            'buttons': [
+              {
+                'type': 'account_link',
+                'url': 'https://quickbot.onrender.com/account/link',
+                'title': 'Login',
+                'payload': 'login',
+              },
+              {
+                'type': 'postback',
+                'title': 'stay anonimos',
+                'payload': 'anonimos',
+              }
+            ],
+          }]
+        }
+      }
     };
   }
 
