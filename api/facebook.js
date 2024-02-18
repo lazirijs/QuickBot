@@ -24,13 +24,13 @@ const send = {
       method: "POST",
       json: requestBody,
     },
-    (err, _res, _body) => {
-      if (!err) {
-        console.log(`--- new Message sent ---`);
-      } else {
-        console.error("Unable to send message : " + err);
-      }
-    });
+      (err, _res, _body) => {
+        if (!err) {
+          console.log(`--- new Message sent ---`);
+        } else {
+          console.error("Unable to send message : " + err);
+        }
+      });
   },
   setupProfile: (requestBody) => {
     console.log("set-up-profile");
@@ -46,9 +46,10 @@ const send = {
     },
     (err, res, body) => {
       if (!err) {
-          console.log(body);
+        console.log("Done !");
+        console.log(body);
       } else {
-          console.log("Unable to send message:" + err);
+        console.log("Unable to send message:" + err);
       }
     });
   },
