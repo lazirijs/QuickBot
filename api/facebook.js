@@ -33,12 +33,14 @@ const send = {
     });
   },
   setupProfile: (requestBody) => {
-    // Construct the message body
-    let url = `https://graph.facebook.com/v15.0/me/messenger_profile?access_token=${PAGE_ACCESS_TOKEN}&v=15.0`;
-
+    console.log("set-up-profile");
+    
     // Send the HTTP request to the Messenger Platform
     request({
-      uri: url,
+      uri: "https://graph.facebook.com/v19.0/me/messenger_profile",
+      qs: {
+        access_token: PAGE_ACCESS_TOKEN,
+      },
       method: "POST",
       json: requestBody,
     },
