@@ -96,7 +96,7 @@ const setupProfile = () => {
             "payload": "RESTART_CONVERSATION"
           },
           {
-              "type": "nested",
+              "type": "postback",
               "title": "More info",
               "call_to_actions": [
                   {
