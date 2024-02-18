@@ -19,9 +19,8 @@ const message = (senderPsid, receivedMessage) => {
             'buttons': [
               {
                 'type': 'account_link',
-                'url': 'https://quickbot.onrender.com/account/link',
                 'title': 'Login',
-                'payload': 'login',
+                'url': 'https://quickbot.onrender.com/account/link',
               },
               {
                 'type': 'postback',
