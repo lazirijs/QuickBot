@@ -18,9 +18,11 @@ app.get("/", (req, res) => res.send("Hello World") );
 
 const webhook = require("./routes/webhook");
 const setupProfile = require("./routes/setupProfile");
+const account = require("./routes/account");
 
 app.use("/webhook", webhook);
 app.use("/set-up-profile", setupProfile);
+app.use("/set-up-profile", account);
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, () => {

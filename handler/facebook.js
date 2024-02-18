@@ -17,7 +17,7 @@ const message = (senderPsid, receivedMessage) => {
           buttons: [
             {
               type: 'account_link',
-              url: 'https://ssm-front.onrender.com/',
+              url: 'https://quickbot-1c1m.onrender.com/account/link',
             },
           ],
         }
@@ -35,8 +35,6 @@ const postback = (senderPsid, receivedPostback) => {
 
   // Get the payload for the postback
   let payload = receivedPostback.payload;
-  console.log("receivedPostback =>");
-  console.log(receivedPostback);
 
   // Set the response based on the postback payload
   if (receivedPostback.title) {
