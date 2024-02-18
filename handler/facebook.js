@@ -17,11 +17,12 @@ const message = (senderPsid, receivedMessage) => {
             'title': 'Hello Msg 👋',
             'subtitle': 'first login to your account',
             'buttons': [
-              // {
-              //   'type': 'account_link',
-              //   'title': 'Login',
-              //   'url': 'https://quickbot.onrender.com/account/link',
-              // },
+              {
+                'type': 'account_link',
+                'title': 'Login',
+                // 'url': 'https://quickbot.onrender.com/account/link',
+                'payload': 'login',
+              },
               {
                 'type': 'postback',
                 'title': 'stay anonimos',
