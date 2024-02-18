@@ -12,16 +12,16 @@ const message = (senderPsid, receivedMessage) => {
       'attachment': {
         'type': 'template',
         'payload': {
-          template_type: 'button',
-          text: 'Link your account',
-          buttons: [
+          'template_type': 'button',
+          'text': 'Link your account',
+          'buttons': [
             {
-              type: 'account_link',
-              url: 'https://quickbot-1c1m.onrender.com/account/link',
+              'type': 'account_link',
+              'url': 'https://quickbot-1c1m.onrender.com/account/link',
             },
           ],
-        }
-      }
+        },
+      },
     };
   }
 
