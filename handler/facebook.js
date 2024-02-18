@@ -96,9 +96,9 @@ const setupProfile = () => {
             "payload": "RESTART_CONVERSATION"
           },
           {
-<<<<<<< HEAD
             "type": "postback",
             "title": "More info",
+            "payload": "MORE_INFO",
             "call_to_actions": [
               {
                 "type": "web_url",
@@ -113,24 +113,6 @@ const setupProfile = () => {
                 "webview_height_ratio": "full"
               },
             ]
-=======
-              "type": "postback",
-              "title": "More info",
-              "call_to_actions": [
-                  {
-                      "type": "web_url",
-                      "title": "View Facebook Fan Page",
-                      "url": "https://www.facebook.com/haryphamdev",
-                      "webview_height_ratio": "full"
-                  },
-                  {
-                      "type": "web_url",
-                      "title": "View Youtube channel",
-                      "url": "https://bit.ly/subscribe-haryphamdev",
-                      "webview_height_ratio": "full"
-                  },
-              ]
->>>>>>> 83e27d28025d7efd14c497efbdc237623adc0e7e
           }
         ]
       }
