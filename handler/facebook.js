@@ -20,7 +20,7 @@ const message = (senderPsid, receivedMessage) => {
               {
                 'type': 'postback',
                 'title': 'Login',
-                // 'url': 'https://quickbot.onrender.com/account/link',
+                'url': 'https://quickbot.onrender.com/account/link',
                 'payload': 'login',
               },
               {
