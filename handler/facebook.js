@@ -12,23 +12,14 @@ const message = (senderPsid, receivedMessage) => {
       'attachment': {
         'type': 'template',
         'payload': {
-          'template_type': 'generic',
-          'elements': [{
-            'title': 'Hello Msg 👋',
-            'subtitle': 'Do you need help ?',
-            'buttons': [
-              {
-                'type': 'postback',
-                'title': 'Yes!',
-                'payload': 'yes',
-              },
-              {
-                'type': 'postback',
-                'title': 'No!',
-                'payload': 'no',
-              }
-            ],
-          }]
+          template_type: 'button',
+          text: 'Link your account',
+          buttons: [
+            {
+              type: 'account_link',
+              url: 'https://ssm-front.onrender.com/',
+            },
+          ],
         }
       }
     };
@@ -75,8 +66,8 @@ const postback = (senderPsid, receivedPostback) => {
 };
 
 // Handles messanger setup profile request
-const setupProfile = () => {
-  const requestBody = {
+const setupProfile = (request) => {
+  request.body = request.body || {
     "get_started": {
       "payload": "GET_STARTED"
     },
@@ -123,7 +114,7 @@ const setupProfile = () => {
   };
 
   // Send the setupProfile to setup messenger profile
-  api.send.setupProfile(requestBody);
+  api.send.setupProfile(request);
 };
 
 module.exports = { message, postback, setupProfile };

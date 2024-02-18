@@ -37,6 +37,7 @@ app.post("/", (req, res) => {
       // Gets the body of the webhook event
       let webhookEvent = entry.messaging[0];
 
+      console.log("webhook Event : ", webhookEvent);
       // Get the sender PSID
       let senderPsid = webhookEvent.sender.id;
       //console.log('Sender PSID: ' + senderPsid);
@@ -47,6 +48,18 @@ app.post("/", (req, res) => {
         handler.message(senderPsid, webhookEvent.message);
       } else if (webhookEvent.postback) {
         handler.postback(senderPsid, webhookEvent.postback);
+      }
+      // Check for Account Linking event
+      else if (webhookEvent.account_linking) {
+        const status = webhookEvent.account_linking.status;
+
+        if (status === 'linked') {
+          // User account successfully linked
+          console.log(`User ${senderPsid} linked their account.`);
+        } else if (status === 'unlinked') {
+          // User account unlinked
+          console.log(`User ${senderPsid} unlinked their account.`);
+        }
       }
     });
 

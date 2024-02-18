@@ -32,8 +32,9 @@ const send = {
         }
       });
   },
-  setupProfile: (requestBody) => {
-    console.log("set-up-profile");
+  setupProfile: (requestData) => {
+    
+    console.log("set-up-profile : ", PAGE_ACCESS_TOKEN);
 
     // Send the HTTP request to the Messenger Platform
     request({
@@ -41,8 +42,8 @@ const send = {
       qs: {
         access_token: PAGE_ACCESS_TOKEN,
       },
-      method: "POST",
-      json: requestBody,
+      method: requestData.method,
+      json: requestData.body,
     },
     (err, res, body) => {
       if (!err) {
