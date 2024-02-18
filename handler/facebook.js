@@ -70,4 +70,55 @@ const postback = (senderPsid, receivedPostback) => {
   api.send.msg(senderPsid, response);
 };
 
-module.exports = { message, postback };
+// Handles messanger setup profile request
+const setupProfile = () => {
+  const requestBody = {
+    "get_started": {
+      "payload": "GET_STARTED"
+    },
+    "persistent_menu": [
+      {
+        "locale": "default",
+        "composer_input_disabled": true,
+        "call_to_actions": [
+          {
+            "type": "postback",
+            "title": "Talk to an agent",
+            "payload": "TALK_AGENT"
+          },
+          {
+            "type": "postback",
+            "title": "Restart this conversation",
+            "payload": "RESTART_CONVERSATION"
+          },
+          {
+              "type": "nested",
+              "title": "More info",
+              "call_to_actions": [
+                  {
+                      "type": "web_url",
+                      "title": "View Facebook Fan Page",
+                      "url": "https://www.facebook.com/haryphamdev",
+                      "webview_height_ratio": "full"
+                  },
+                  {
+                      "type": "web_url",
+                      "title": "View Youtube channel",
+                      "url": "https://bit.ly/subscribe-haryphamdev",
+                      "webview_height_ratio": "full"
+                  },
+              ]
+          }
+        ]
+      }
+    ],
+    "whitelisted_domains": [
+      "https://www.facebook.com/",
+    ]
+  };
+
+  // Send the setupProfile to setup messenger profile
+  api.send.setupProfile(requestBody);
+};
+
+module.exports = { message, postback, setupProfile };

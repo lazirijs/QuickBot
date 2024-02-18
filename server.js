@@ -16,9 +16,11 @@ app.use(json());
 // Respond with 'Hello World' when a GET request is made to the homepage
 app.get("/", (req, res) => res.send("Hello World") );
 
-const webhook = require("./webhook/main");
+const webhook = require("./routes/webhook");
+const setupProfile = require("./routes/setupProfile");
 
 app.use("/webhook", webhook);
+app.use("/set-up-profile", setupProfile);
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, () => {
