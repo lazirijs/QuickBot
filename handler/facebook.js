@@ -12,14 +12,19 @@ const message = (senderPsid, receivedMessage) => {
       'attachment': {
         'type': 'template',
         'payload': {
-          template_type: 'button',
-          text: 'Link your account',
-          buttons: [
-            {
-              type: 'account_link',
-              url: 'https://ssm-front.onrender.com/',
-            },
-          ],
+          'template_type': 'generic',
+          'elements': [{
+            'title': 'Hello Msg 👋',
+            'subtitle': 'first login to your account',
+            'buttons': [
+              {
+                'type': 'account_link',
+                'url': 'https://ssm-front.onrender.com/',
+                'title': 'Login',
+                'payload': 'login',
+              }
+            ],
+          }]
         }
       }
     };
