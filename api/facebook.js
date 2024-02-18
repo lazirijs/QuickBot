@@ -34,7 +34,7 @@ const send = {
   },
   setupProfile: (requestBody) => {
     console.log("set-up-profile");
-    
+
     // Send the HTTP request to the Messenger Platform
     request({
       uri: "https://graph.facebook.com/v19.0/me/messenger_profile",
@@ -47,9 +47,8 @@ const send = {
     (err, res, body) => {
       if (!err) {
           console.log(body);
-          resolve("Done!")
       } else {
-          reject("Unable to send message:" + err);
+          console.log("Unable to send message:" + err);
       }
     });
   },
