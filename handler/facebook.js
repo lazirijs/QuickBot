@@ -18,7 +18,7 @@ const message = (senderPsid, receivedMessage) => {
             'subtitle': 'first login to your account',
             'buttons': [
               {
-                'type': 'account_link',
+                'type': 'postback',
                 'title': 'Login',
                 // 'url': 'https://quickbot.onrender.com/account/link',
                 'payload': 'login',
