@@ -9,14 +9,13 @@ const message = (senderPsid, receivedMessage) => {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
     response = {
-      'text': 'Hello Msg 👋',
       'attachment': {
         'type': 'template',
         'payload': {
           'template_type': 'generic',
           'elements': [{
-            'title': 'Do you need help ?',
-            //'subtitle': 'Do you need help ?',
+            'title': 'Hello Msg 👋',
+            'subtitle': 'Do you need help ?',
             'buttons': [
               {
                 'type': 'postback',
