@@ -12,12 +12,12 @@ const message = (senderPsid, receivedMessage) => {
       "attachment": {
         "type": "template",
         "payload": {
-          "template_type": "button",
-          "text": "Try the log in button!",
-          "buttons": [
+          "template_type":"button",
+          "text": "Connect Facebook to continue",
+          "buttons":[
             {
-              "type": "account_link",
-              "url": "https://quickbot-1c1m.onrender.com/account/link"
+              "type":"account_link",
+              "url": "https://quickbot-1c1m.onrender.com/account/login"  
             }
           ]
         }
