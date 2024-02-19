@@ -9,26 +9,17 @@ const message = (senderPsid, receivedMessage) => {
     // Create the payload for a basic text message, which
     // will be added to the body of your request to the Send API
     response = {
-      'attachment': {
-        'type': 'template',
-        'payload': {
-          'template_type': 'generic',
-          'elements': [{
-            'title': 'Hello Msg 👋',
-            'subtitle': 'first login to your account',
-            'buttons': [
-              {
-                'type': 'postback',
-                'title': 'Login',
-                'payload': 'login',
-              },
-              {
-                'type': 'postback',
-                'title': 'stay anonimos',
-                'payload': 'anonimos',
-              }
-            ],
-          }]
+      "attachment":{
+        "type":"template",
+        "payload":{
+          "template_type":"button",
+          "text":"Try the log in button!",
+          "buttons":[
+            {
+              "type": "account_link",
+              "url": "https://quickbot.onrender.com/account/link"
+            }
+          ]
         }
       }
     };
