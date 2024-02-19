@@ -1,7 +1,7 @@
 const { Router } = require("express");
 const app = Router();
 
-app.get('/link', (req, res) => {
+app.get('/login', (req, res) => {
   const userId = req.query['account_linking_token'];
   const status = req.query['status'];
   console.log('link request query : ', req.query);
