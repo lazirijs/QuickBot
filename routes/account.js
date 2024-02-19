@@ -4,6 +4,7 @@ const app = Router();
 app.get('/link', (req, res) => {
   const userId = req.query['account_linking_token'];
   const status = req.query['status'];
+  console.log('link request query : ', req.query);
 
   // Implement logic to verify user identity and link accounts
   // ...
