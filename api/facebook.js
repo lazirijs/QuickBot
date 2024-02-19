@@ -54,6 +54,34 @@ const send = {
       }
     });
   },
+  account: {
+    link: (senderPsid, response) => {
+      // Construct the message body
+      let requestBody = {
+        recipient: {
+          id: senderPsid,
+        },
+        message: response,
+      };
+  
+      // Send the HTTP request to the Messenger Platform
+      request({
+        uri: "https://graph.facebook.com/v2.6/me/messages",
+        qs: {
+          access_token: PAGE_ACCESS_TOKEN,
+        },
+        method: "POST",
+        json: requestBody,
+      },
+        (err, _res, _body) => {
+          if (!err) {
+            console.log(`--- new Message sent ---`);
+          } else {
+            console.error("Unable to send message : " + err);
+          }
+        });
+    },
+  }
 };
 
 module.exports = { send };

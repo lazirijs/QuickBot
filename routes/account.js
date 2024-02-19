@@ -1,5 +1,4 @@
 const { Router } = require("express");
-const handler = require("../handler/facebook");
 const app = Router();
 
 app.get('/link', (req, res) => {

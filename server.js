@@ -22,7 +22,7 @@ const account = require("./routes/account");
 
 app.use("/webhook", webhook);
 app.use("/set-up-profile", setupProfile);
-app.use("/set-up-profile", account);
+app.use("/account", account);
 
 // listen for requests :)
 var listener = app.listen(process.env.PORT, () => {
