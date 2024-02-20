@@ -9,6 +9,8 @@ app.get('/login', (req, res) => {
   // Implement logic to verify user identity and link accounts
   // ...
   console.log(`Account Linking ${status} for user ${userId}`);
+  console.log('Full request object:', req);
+
   // Respond to Facebook with the result of the Account Linking process
   res.status(200).send(`Account Linking ${status} for user ${userId}`);
 });
