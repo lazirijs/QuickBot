@@ -17,7 +17,7 @@ const message = (senderPsid, receivedMessage) => {
           "buttons":[
             {
               "type":"account_link",
-              "url": "https://quickbot-1c1m.onrender.com/account/login"  
+              "url": "https://frontquickbot.onrender.com/"  
             }
           ]
         }
